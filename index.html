@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Capolavoro Boxe - Ismaele Sutera</title>
+<style>
+  body {
+    margin: 0; padding: 0;
+    background: radial-gradient(circle at center, #1a1a1a, #000000 90%);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/Boxing_ring_corner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .overlay {
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.75);
+    z-index: -1;
+  }
+  .slide {
+    display: none;
+    height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(0,0,0,0.6);
+    border-radius: 15px;
+    margin: 2rem;
+    box-shadow: 0 0 20px #ff0000;
+  }
+  .slide.active {
+    display: flex;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 8px #ff0000;
+  }
+  p, li {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    max-width: 700px;
+    line-height: 1.5;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  ul li {
+    margin: 0.8rem 0;
+  }
+  button {
+    cursor: pointer;
+    background: #ff0000;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 28px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: 0 0 10px #ff0000;
+    transition: background 0.3s ease;
+    margin: 0.5rem;
+  }
+  button:hover {
+    background: #cc0000;
+  }
+  img {
+    max-width: 350px;
+    margin: 1rem auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #ff0000;
+  }
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  .button-group {
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<!-- SLIDE 1 -->
+<section class="slide active" id="home">
+  <h1>🥊 Benvenuto nel mio capolavoro</h1>
+  <p>Preparati a scoprire la storia, i campioni, i valori di questo sport leggendario e ciò che rappresenta per me.</p>
+  <div class="button-group">
+    <button onclick="goToSlide('campioni')">Vai ai Campioni</button>
+  </div>
+</section>
+
+<!-- SLIDE 2 -->
+<section class="slide" id="campioni">
+  <h1>🏆 I Grandi Campioni</h1>
+  <ul>
+    <li><strong>Muhammad Ali</strong>: “Float like a butterfly, sting like a bee.”</li>
+    <li><strong>Mike Tyson</strong>: “Everyone has a plan until they get punched in the mouth.”</li>
+    <li><strong>Rocky Marciano</strong>: una leggenda imbattuta.</li>
+  </ul>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Mike_Tyson_2.jpg" alt="Mike Tyson" />
+  <div class="button-group">
+    <button onclick="goToSlide('valori')">Scopri i Valori</button>
+    <button onclick="goToSlide('home')" style="background:#444;">Torna all’inizio</button>
+  </div>
+</section>
+
+<!-- SLIDE 3 -->
+<section class="slide" id="valori">
+  <h1>💡 I Valori della Boxe</h1>
+  <ul>
+    <li><strong>Disciplina:</strong> La disciplina è la base di ogni allenamento, richiede impegno costante e rispetto delle regole, senza compromessi.</li>
+    <li><strong>Rispetto:</strong> sia per l’avversario che per se stessi.</li>
+    <li><strong>Determinazione:</strong> solo chi si rialza dopo il KO vince davvero.</li>
+  </ul>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Boxing_Sparring_in_the_Gym_2010_07_12_1.jpg" alt="Allenamento boxe" />
+  <div class="button-group">
+    <button onclick="goToSlide('significato')">La Boxe per Me</button>
+    <button onclick="goToSlide('home')" style="background:#444;">Torna all’inizio</button>
+  </div>
+</section>
+
+<!-- SLIDE 4 -->
+<section class="slide" id="significato">
+  <h1>❤️ Cosa rappresenta per me la Boxe</h1>
+  <p>La boxe per me è molto più di uno sport: è una scuola di vita. Mi insegna a resistere ai colpi, a rialzarmi dopo ogni caduta e a non mollare mai, anche quando tutto sembra impossibile. È la mia motivazione, la mia forza quando tutto il resto vacilla.</p>
+  <p>Combatto ogni giorno per migliorarmi, dentro e fuori dal ring. E questa determinazione mi spinge a non arrendermi mai.</p>
+  <div class="button-group">
+    <button onclick="goToSlide('home')">Torna all’inizio</button>
+    <button onclick="goToSlide('valori')" style="background:#444;">Indietro ai Valori</button>
+  </div>
+</section>
+
+<script>
+  function goToSlide(id) {
+    document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
